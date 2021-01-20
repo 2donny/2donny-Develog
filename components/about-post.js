@@ -15,17 +15,23 @@ export default function AboutPost({
         <Avatar picture="favicon/profile.png" />
         <div className="flex flex-col mt-10 max-w-3xl">
           <h3 className="font-mono mb-4 text-4xl lg:text-6xl leading-tight">
-            👨🏻‍💻   정이든 (Jung Edon)
+            👨🏻‍💻   정이든 (Jung E Don)
           </h3>
-          <p className="font-sans text-base leading-relaxed mb-4 lg:text-lg 2xl:text-text-lg sm:text-left">
-            모르는 지식을 습득하는 과정을 즐기는 프론트엔드 개발자 입니다. <br />
-            관심있는 분야는 Web이고 WPO(Web Performance Optimization)에 흥미를 느끼며 공부하고 있습니다. <br />
+          <p className="font-sans text-base mb-4 lg:text-lg  sm:text-left mt-3">
+            TypeScript를 이용하여 React.js와 Next.js 개발을 하고있습니다.<br />
             <br />
-            빠른 Learning curve를 그리며 성장하고있는 코딩 좋아하는 평범한 컴과생입니다.<br /> 
-            <p className="text-indigo-600 text-opacity-90">
-              TypeScript를 사용하여 React.js와 Next.js 개발을 하고있습니다.
-            </p>
-            
+            몰랐던 지식을 습득하는 과정을 즐기는 프론트엔드 개발자 입니다. <br />
+            UI/UX에 관심이 많아 WPO(Web Performance Optimization)에 흥미를 갖고 공부하고 있습니다. <br />
+            빠른 Learning curve를 그리며 성장중인 코딩 좋아하는 평범한 컴과생입니다.<br /> 
+            <div className="flex flex-col">
+              <img 
+                className="mt-12"
+                src="favicon/commit.png"
+                width={500}
+                alt="commit"
+              />
+              <span className="text-xs text-gray-400">학기중에 외주를 받았던 터라 간간히 커밋이 되어있는 것을 볼 수 있다.</span>
+            </div>
           </p>
         </div>
       </div>
