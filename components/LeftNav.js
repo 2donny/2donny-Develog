@@ -2,39 +2,23 @@ import Link from 'next/link';
 import React from 'react';
 
 const LeftNav = () => {
+    const nav = ["개발 공부", "CS", "PS", "Next", "React", "React Native", "기타"];
+    let spaceDeletedStr;
     return (
-        <div className="fixed z-10 top-1/4 invisible xl:visible sm:invisible border-2 border-gray-300 inline-block text-center px-5 py-5 h-66">
+        <div className="fixed z-10 top-1/4 invisible lg:visible xl:visible sm:invisible border-2 border-gray-300 inline-block text-center px-5 py-5 h-66">
             <ul className="items-center">
-                <Link href="/">
-                    <li className=" cursor-pointer">
-                        <p className="text-lg inline-block hover:text-gray-300">개발 공부</p>
-                    </li>
-                </Link>
-                <Link href="/">
-                    <li className=" cursor-pointer">
-                    <p className="inline-block hover:text-gray-300">CS</p>
-                    </li>
-                </Link>
-                <Link href="/">
-                    <li className=" cursor-pointer">
-                    <p className="text-lg inline-bloc hover:text-gray-300">PS</p>
-                    </li>
-                </Link>
-                <Link href="/">
-                    <li className=" cursor-pointer">
-                    <p className="text-xl  inline-block hover:text-gray-300">Next.js</p>
-                    </li>
-                </Link>
-                <Link href="/">
-                    <li className=" cursor-pointer">
-                    <p className="text-xl  inline-block hover:text-gray-300">React</p>
-                    </li>
-                </Link>
-                <Link href="/">
-                    <li className=" cursor-pointer">
-                    <p className="text-xl  inline-block hover:text-gray-300">React Native</p>
-                    </li>
-                </Link>
+                {
+                    nav.map(category => (
+                        spaceDeletedStr = category.replace(' ', '-'),
+                        category = spaceDeletedStr,
+                        (
+                        <Link as={`/category/${category}`} href="/category/[category]">
+                            <li className=" cursor-pointer">
+                                <p className="my-2 text-xl inline-block hover:text-gray-300">{category}</p>
+                            </li>
+                        </Link>
+                    )))
+                }
             </ul>
         </div>
     )
