@@ -12,25 +12,27 @@ export default function PostPreview({
   slug,
 }) {
   return (
-    <div>
+    // Post 각각
+    <div className="shadow-xl hover:-translate-y-5 transform duration-500 mt-5 w-50">
       <div className="mb-5">
-        <CoverImage
-          slug={slug}
-          title={title}
-          src={coverImage}
-          height={500}
-          width={1000}
-        />
-      </div>
-      <h3 className="text-3xl mb-3 leading-snug">
-        <Link as={`/posts/${slug}`} href="/posts/[slug]">
-          <a className="hover:underline">{title}</a>
-        </Link>
-      </h3>
-      <div className="text-lg mb-4">
-        <DateFormatter dateString={date} />
-      </div>
-      <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
+          <CoverImage
+            slug={slug}
+            title={title}
+            src={coverImage}
+            height={550}
+            width={1000}
+          />
+        </div>
+        <div className="px-5">
+          <h3 className="text-2xl lg:text-2xl xl:text-base mb-3 ">
+            <Link as={`/posts/${slug}`} href="/posts/[slug]">
+              <a className="hover:underline">{title}</a>
+            </Link>
+          </h3>
+          <div className="text-lg mb-4 lg:text-sm">
+            <DateFormatter dateString={date} />
+          </div>
+        </div>
     </div>
   )
 }
