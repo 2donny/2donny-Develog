@@ -11,7 +11,7 @@ export default function CoverImage({ title, src, slug, height, width }) {
         'hover:shadow-md transition-shadow duration-200': slug,
       })}
       layout="responsive"
-      width={width}
+      width={width}      
       height={height}
     />
   )

@@ -1,38 +1,30 @@
 import Container from '../components/container'
-import MoreStories from '../components/more-stories'
-import HeroPost from '../components/hero-post'
+import MyPosts from '../components/MyPosts'
 import Intro from '../components/intro'
 import Layout from '../components/layout'
 import { getAllPosts } from '../lib/api'
 import Head from 'next/head'
+import LeftNav from '../components/LeftNav';
 
 export default function Index({ allPosts }) {
-  const heroPost = allPosts[0]  // 가장 최신의 md 파일 contents가 담긴 post
-  const morePosts = allPosts.slice(1) 
   return (
     <>
       <Layout>
         <Head>
           <title> 2donny's Develog</title>
         </Head>
-        <Container>
-          <Intro />
-          {heroPost && (
-            <HeroPost
-              title={heroPost.title}
-              coverImage={heroPost.coverImage}
-              date={heroPost.date}
-              author={heroPost.author}
-              slug={heroPost.slug}
-              excerpt={heroPost.excerpt}
-            />
-          )}
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
-        </Container>
+
+        <div className="relative">
+          <Container>
+            <Intro />
+            <LeftNav />
+            <MyPosts posts={allPosts} />
+          </Container>
+        </div>
       </Layout>
     </>
   )
-}
+} 
 
 export async function getStaticProps() {
   const allPosts = getAllPosts([

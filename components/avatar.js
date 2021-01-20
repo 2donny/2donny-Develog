@@ -1,8 +1,12 @@
-export default function Avatar({ name, picture }) {
+export default function Avatar({ picture }) {
   return (
-    <div className="flex items-center">
-      <img src={picture} className="w-12 h-12 rounded-full mr-4" alt={name} />
-      <div className="text-xl font-bold">{name}</div>
+    <div className="flex justify-center mt-5">
+      <img 
+        src={picture} 
+        className=" max-w-4xl h-64 rounded-full mr-4 2xl:w-96 2xl:h-96" 
+        alt="정이든" 
+        object-fi
+      />
     </div>
   )
 }

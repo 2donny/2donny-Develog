@@ -1,26 +1,22 @@
-import Avatar from '../components/avatar'
 import DateFormatter from '../components/date-formatter'
 import CoverImage from '../components/cover-image'
 import PostTitle from '../components/post-title'
 
 export default function PostHeader({ title, coverImage, date, author }) {
   return (
-    <>
+    <div className="max-w-2xl mx-auto">
+      {/* 포스트 제목  */}
       <PostTitle>{title}</PostTitle>
-      <div className="hidden md:block md:mb-12">
-        <Avatar name={author.name} picture={author.picture} />
+
+      {/* 날짜 */}
+      <div className="mb-6 text-sm text-opacity-50 text-gray-400">
+        최종  수정일 <DateFormatter dateString={date} />
       </div>
-      <div className="mb-8 md:mb-16 sm:mx-0">
-        <CoverImage title={title} src={coverImage} height={620} width={1240} />
+
+      {/* 커버 이미지 */}
+      <div className="mb-8 sm:mx-0 md:mb-16 ">
+        <CoverImage title={title} src={coverImage} height={100} width={100} />
       </div>
-      <div className="max-w-2xl mx-auto">
-        <div className="block md:hidden mb-6">
-          <Avatar name={author.name} picture={author.picture} />
-        </div>
-        <div className="mb-6 text-lg">
-          <DateFormatter dateString={date} />
-        </div>
-      </div>
-    </>
+    </div>
   )
 }

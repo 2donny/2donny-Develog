@@ -1,30 +1,71 @@
+import React, { useRef } from 'react';
 import Container from './container'
-import { EXAMPLE_PATH } from '../lib/constants'
+import Image from 'next/image';
+import Link from 'next/link';
 
-export default function Footer() {
+export default function Footer () {
   return (
-    <footer className="bg-accent-1 border-t border-accent-2">
+    <footer className="bg-accent-1 border-t border-accent-2 clear-both">
       <Container>
-        <div className="py-28 flex flex-col lg:flex-row items-center">
-          <h3 className="text-4xl lg:text-5xl font-bold tracking-tighter leading-tight text-center lg:text-left mb-10 lg:mb-0 lg:pr-4 lg:w-1/2">
-            Statically Generated with Next.js.
-          </h3>
-          <div className="flex flex-col lg:flex-row justify-center items-center lg:pl-4 lg:w-1/2">
-            <a
-              href="https://nextjs.org/docs/basic-features/pages"
-              className="mx-3 bg-black hover:bg-white hover:text-black border border-black text-white font-bold py-3 px-12 lg:px-8 duration-200 transition-colors mb-6 lg:mb-0"
-            >
-              Read Documentation
-            </a>
-            <a
-              href={`https://github.com/vercel/next.js/tree/canary/examples/${EXAMPLE_PATH}`}
-              className="mx-3 font-bold hover:underline"
-            >
-              View on GitHub
-            </a>
+        <div className="py-10 flex flex-col items-center lg:flex-row lg:justify-evenly">
+
+          <div className="flex flex-col">
+            <h3 className="text-2xl lg:text-1xl leading-tight text-center lg:text-left mb-3 lg:mb-2">
+              2donny
+            </h3>
+            <p className=" text-xs opacity-50">© 2021 2donny Powered by 
+              <a href="https://nextjs.org/" className="text-blue-500 hover:underline"> Next.js</a> 
+            </p>
+          </div>
+
+          <div className="flex flex-row items-center mt-5">
+            <div>
+              <Link href="https://github.com/2donny">
+                <a aria-label="git">
+                  <Image
+                    className="cursor-pointer"
+                    src="/favicon/GitHub-Mark-32px.png"
+                    alt="https://github"
+                    width={25}
+                    height={25}
+                  />
+                </a>
+              </Link>
+            </div>
+
+            <div className="ml-10">
+              <Link href="https://nextjs.org/">
+                <a aria-label="next">
+                  <Image 
+                    className="cursor-pointer"
+                    src="/favicon/favicon-32x32.png"
+                    alt="next"
+                    width={25}
+                    height={25}
+                  />
+                </a>
+              </Link>
+            </div>
+
+            <div className="ml-10">
+              <Link href="mailto:2donny@naver.com">
+                <a aria-label="mail">
+                  <Image
+                    id="mail" 
+                    className="cursor-pointer"
+                    src="/favicon/mail.png"
+                    alt="mail"
+                    width={35}
+                    height={35}
+                  />
+                </a>
+              </Link>
+            </div>
+            
           </div>
         </div>
       </Container>
     </footer>
   )
-}
+};
+
