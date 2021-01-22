@@ -7,11 +7,10 @@ import Layout from '../../components/layout'
 import { getPostBySlug, getAllPosts } from '../../lib/api'
 import PostTitle from '../../components/post-title'
 import Head from 'next/head'
-import { CMS_NAME } from '../../lib/constants'
 import markdownToHtml from '../../lib/markdownToHtml'
 import Intro from '../../components/intro';
 
-export default function Post({ post, morePosts, preview }) {
+export default function Post({ post }) {
   const router = useRouter()
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
@@ -50,11 +49,10 @@ export async function getStaticProps({ params }) {
     'title',
     'date',
     'slug',
-    'author',
     'content',
     'ogImage',
     'coverImage',
-  ])
+  ]);
   const content = await markdownToHtml(post.content || '')
 
   return {
@@ -68,7 +66,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const posts = getAllPosts(['slug'])
+  const posts = getAllPosts(['slug']);
 
   return {
     paths: posts.map((post) => {
