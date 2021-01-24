@@ -1,7 +1,7 @@
 # 👨🏻‍💻
 # Handmade Blog
 
-This is Handmade Blog using [Next.js](https://nextjs.org) Framework which helps to make statically generated blog. I used [remark](https://remark.js.org/) to convert Markdown files into HTML string, and then send it down as a prop to pages directory.
+This is Handmade Blog using [Next.js](https://nextjs.org), and deployed to the cloud via [Vercel](https://vercel.com/dashboard).
 
 ## Demo Here (Not yet)
 https://2donny-develog.vercel.app/
