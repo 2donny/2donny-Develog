@@ -8,12 +8,12 @@ export default function Intro() {
 
       {/* 내 소개 */}
       <div>
-        <h1 className="font-mono text-6xl md:text-4xl tracking-tighter leading-tight md:pr-8">
-          <Link href="/" className="px-2 py-2">
+        <h1 className="font-mono text-6xl md:text-2xl tracking-tighter leading-tight md:pr-8">
+          <Link href="/" className="px-2 py-2 ">
             2donny's develog
           </Link>
         </h1>
-        <p className="mt-2 text-center md:text-left text-sm duration-200 text-gray-400 hover:text-gray-600">웹 성능 최적화에 관심이 많은 개발자입니다.</p>
+        <p className="mt-2 text-center md:text-left text-xs duration-200 text-gray-400 hover:text-gray-600">웹 성능 최적화에 관심이 많은 개발자입니다.</p>
       </div>
 
       {/* 네비게이션 */}

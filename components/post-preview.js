@@ -24,7 +24,7 @@ export default function PostPreview({
           />
         </div>
         <div className="px-5">
-          <h3 className="text-2xl lg:text-2xl xl:text-base mb-3 ">
+          <h3 className="text-2xl lg:text-2xl xl:text-lg mb-3 ">
             <Link as={`/posts/${slug}`} href="/posts/[slug]">
               <a className="hover:underline">{title}</a>
             </Link>
