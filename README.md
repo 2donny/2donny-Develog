@@ -1,7 +1,7 @@
 <h1 align="center">
 👨🏻‍💻 Handmade Blog    
 </h1>
-This is Handmade Blog using [Next.js](https://nextjs.org), and deployed to the cloud via [Vercel](https://vercel.com/dashboard).
+a Handmade static blog using Next.js deployed to the cloud via Vercel Now
 
 ## ✏️ Features
 
