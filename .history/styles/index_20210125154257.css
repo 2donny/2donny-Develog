@@ -1,0 +1,9 @@
+@tailwind base;
+
+@tailwind components;
+
+@layer components {
+    @import "./components.css";
+}
+
+

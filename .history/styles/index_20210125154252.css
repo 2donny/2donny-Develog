@@ -1,0 +1,13 @@
+@tailwind base;
+
+@tailwind components;
+@layer components {
+    @import "./components.css";
+}
+/* Write you own custom component styles here */
+
+/* Start purging... */
+@tailwind utilities;
+/* Stop purging. */
+
+/* Your own custom utilities */
