@@ -13,7 +13,7 @@ export default function Footer () {
             <h3 className="text-2xl lg:text-1xl leading-tight text-center lg:text-left mb-3 lg:mb-2">
               2donny
             </h3>
-            <p className=" text-xs opacity-50">© 2021 2donny Powered by 
+              <p className=" text-xs opacity-50">© {new Date().getFullYear()} 2donny Powered by 
               <a href="https://nextjs.org/" className="text-blue-500 hover:underline"> Next.js</a> &#128293;
             </p>
           </div>
