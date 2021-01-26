@@ -1,6 +1,7 @@
 ---
-title: '블로그 개설 '
+title: '블로그 개설'
 category: '기타'
+description: '블로그 개설'
 coverImage: '/assets/cat.jpg'
 date: '2021-01-16T05:35:07.322Z'
 ogImage:
