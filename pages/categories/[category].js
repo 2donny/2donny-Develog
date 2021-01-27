@@ -7,6 +7,7 @@ import Head from 'next/head'
 import LeftNav from '../../components/LeftNav';
 
 export default function category({ filteredPosts }) {
+  console.log(filteredPosts);
   return (
     <>
       <Layout>
@@ -26,7 +27,7 @@ export default function category({ filteredPosts }) {
   )
 } 
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }) {  // params.category는 오직 하나
   const allPosts = getAllPosts([
     'title',
     'date',
@@ -36,7 +37,7 @@ export async function getStaticProps({ params }) {
   ]);
 
   const filteredPosts = allPosts.filter(post => {
-    return post.category === params.category
+    return post.category.includes(params.category)
   });
 
   return {
@@ -45,13 +46,12 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-    const posts = getAllPosts(['category']);
-
+    const posts = ["개발-공부", "CS", "PS", "Next", "React", "React-Native", "기타"];
     return {
         paths: posts.map(post => {
           return {
             params: {
-              category: post.category
+              category: post
             }
           }
         }),
