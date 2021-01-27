@@ -2,7 +2,6 @@ import PostPreview from './post-preview'
 
 export default function MyPosts({ posts }) {
   return (
-    // 포스트 전체를 담는 컨테이너
     <section>
       <div 
       className="
@@ -26,16 +25,20 @@ export default function MyPosts({ posts }) {
       lg:float-right 
       xl:float-right 
       mb-32">
-        {posts.map((post) => (
-          <PostPreview
-            key={post.slug}
-            title={post.title}
-            coverImage={post.coverImage}
-            date={post.date}
-            slug={post.slug}
-            category={post.category}
-          />
-        ))}
+        {posts.length ? (
+          posts.map((post) => (
+            <PostPreview
+              key={post.slug}
+              title={post.title}
+              coverImage={post.coverImage}
+              date={post.date}
+              slug={post.slug}
+              category={post.category}
+            />
+          ))
+        ): (
+          <h1 className="text-xl">관련 글이 없습니다.</h1>
+        )}
       </div>
     </section>
   )
