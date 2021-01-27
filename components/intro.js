@@ -24,6 +24,11 @@ export default function Intro() {
           </Link>
         </h4>
         <h4 className="font-serif text-lg mt-5 pl-4 md:pl-6 hover:text-success duration-200 transition-colors">
+          <Link href="/resume">
+            Resume
+          </Link>
+        </h4>
+        <h4 className="font-serif text-lg mt-5 pl-4 md:pl-6 hover:text-success duration-200 transition-colors">
           <Link href="/project">
             Project
           </Link>
