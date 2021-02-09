@@ -7,8 +7,8 @@ import Layout from '../../components/layout'
 import { getPostBySlug, getAllPosts } from '../../lib/api'
 import PostTitle from '../../components/post-title'
 import Head from 'next/head'
-// import markdownToHtml from '../../lib/markdownToHtml'
 import Intro from '../../components/intro';
+import LeftNav from '../../components/LeftNav'
 
 export default function Post({ post }) {
   const router = useRouter()
@@ -17,12 +17,13 @@ export default function Post({ post }) {
   }
   return (
     <Layout>
-      <Container>
+      <div className="container mx-auto">
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
           <>
             <Intro />
+            <LeftNav/>
             <article className="mb-32">
               <Head>
                 <title>
@@ -39,7 +40,7 @@ export default function Post({ post }) {
             </article>
           </>
         )}
-      </Container>
+      </div>
     </Layout>
   )
 }

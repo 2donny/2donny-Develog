@@ -12,8 +12,8 @@ const LeftNav = () => {
                         spaceDeletedStr = category.replace(' ', '-'),
                         (
                         <Link as={`/categories/${spaceDeletedStr}`} href="/categories/[category]" key={index}>
-                            <li className=" cursor-pointer">
-                                <p className="my-2 text-xl inline-block hover:text-gray-300">{category}</p>
+                            <li className=" hover:bg-gray-300 cursor-pointer">
+                                <p className="my-2 text-xl inline-block">{category}</p>
                             </li>
                         </Link>
                     )))

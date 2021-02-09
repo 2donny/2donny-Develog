@@ -13,10 +13,10 @@ export default function PostHeader({ title, coverImage, date }) {
         최종  수정일 <DateFormatter dateString={date} />
       </div>
 
-      {/* 커버 이미지
+      {/* 커버 이미지 */}
       <div className="mb-8 sm:mx-0 md:mb-16 ">
         <CoverImage title={title} src={coverImage} height={600} width={1000} />
-      </div> */}
+      </div>
     </div>
   )
 }
