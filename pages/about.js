@@ -12,9 +12,7 @@ export default function about() {
             </Head>
             <Container>
                 <Intro />
-                <AboutPost 
-                    
-                />
+                <AboutPost />
             </Container>
         </Layout>
     )

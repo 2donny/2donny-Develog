@@ -9,3 +9,6 @@
 filter: blur(0);
 }
   
+article a img {
+  height: 45px;
+}
