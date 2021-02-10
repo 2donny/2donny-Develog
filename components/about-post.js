@@ -40,6 +40,9 @@ export default function AboutPost() {
                 <a href="https://www.learncpp.com/" className="hover:bg-gray-300 my-0.5 mx-0.5">
                     <img alt="c++" src="c++.png" />
                 </a>
+                <a href="https://ocaml.org/" className="hover:bg-gray-300 my-0.5 mx-0.5">
+                    <img alt="ocaml" src="ocaml.png"/>
+                </a> 
               </div>
             </article>
 
