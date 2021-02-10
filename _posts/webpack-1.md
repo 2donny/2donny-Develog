@@ -15,7 +15,7 @@ CRA가 초기 웹팩 설정을 대신해주기 때문에 굳이 모든 설정을
 
 Webpack은 여러개의 모듈들을 읽어들여 dependency graph를 만들고 이를 통해 하나 혹은 여러개의 번들 파일을 만드는 <strong>모듈 번들러</strong>이다.
 
-## CRA없이 리액트 프로젝트 만들기
+## 1. CRA없이 React 프로젝트 만들기
 ```shell
 $ mkdir webpack-folder
 $ cd webpack-folder
@@ -128,4 +128,66 @@ module.exports = {
 }
 ```
 
-이제 npx webpack을 실행하면 dist 폴더 밑에 정상적으로 bundle.js 파일이 생성됩니다.
+위와 같이 설정 파일을 다시 작성하고 npx webpack을 실행하면 dist 폴더 밑에 정상적으로 bundle.js 파일이 생성됩니다.
+
+## 2. Typescript with Webpack
+
+Typescript로 개발시 Webpack 설정 방법
+
+```bash
+$ npm tsx --init
+$ npm i ts-loader typescript -D
+```
+
+
+
+```javascript
+// index.tsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const App = () => {
+  return (
+    <div>hello world</div>
+  )
+}
+
+ReactDOM.render(<App />, document.getElementById('root'));
+
+```
+
+```javascript
+// webpack.config.js
+module.exports = {
+  entry: './src/index.tsx',
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js']
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(ts|tsx)$/,
+        exclude: /node_modules/,
+        use: ['ts-loader'],
+      },
+    ]
+  },
+}
+```
+
+```json
+// tsconfig.json
+{
+  "compilerOptions": {
+    "target": "es5",                         
+    "module": "es5",
+    "jsx": "react",
+    "sourceMap": true
+  },
+  "exclude": "node_modules"
+}
+
+```
+
+ts-loader가 tsc, 즉 타입스크립트 컴파일러를 사용하기 때문에 tsconfig.json 파일을 설정해야합니다. 주의할 점은 module의 키 값으로 "CommonJS"를 주게되면
+웹팩이 [tree-shaking](https://webpack.js.org/guides/tree-shaking/)을 못하므로 조심해야합니다.  
