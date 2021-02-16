@@ -23,10 +23,14 @@ export default function AboutPost() {
             <article>
               <h1 className=" text-3xl mb-2">Introduction</h1>
               <div className=" border-b-2 mb-5"></div>
+              <ul className="text-base lg:text-lg sm:text-left ">
+                <li>TypeScript를 이용하여 React.js와 Next.js 개발을 하고있습니다.</li>
+                <li>정적 타이핑, 유닛 테스트를 통해 내가 작성한 코드가 안전하게 실행되도록 합니다.</li>
+                <li>UI/UX에 관심이 많아 WPO(Web Performance Optimization)에 흥미가 있습니다.</li>
+              </ul>
               <p className="font-sans text-base mb-4 lg:text-lg  sm:text-left">
-                TypeScript를 이용하여 React.js와 Next.js 개발을 하고있습니다.<br />
-                정적 타이핑, 유닛 테스트를 통해 내가 작성한 코드가 안전하게 실행되도록 합니다.<br />
-                UI/UX에 관심이 많아 WPO(Web Performance Optimization)에 흥미가 있습니다. <br />
+                
+                
               </p>
             </article>
             {/* PL */}
