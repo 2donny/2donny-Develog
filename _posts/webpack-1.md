@@ -102,6 +102,8 @@ $ npm i style-loader css-loader babel-loader -D
   * 그리고 style-loader로 웹팩이 읽은 CSS 모듈을 DOM에 inject합니다. 즉, HTML 문서안에 style 태그 안으로 주입됩니다.
 * babel-loader는 웹팩이 js 모듈을 읽을 때 babel을 통해 ES6+ 문법을 이전 버전으로 transpiling 한 후에 번들링을 하게 해줍니다.
 
+<br />
+
 ```javascript
 // webpack.config.js 
 
@@ -132,62 +134,91 @@ module.exports = {
 
 ## 2. Typescript with Webpack
 
-Typescript로 개발시 Webpack 설정 방법
+Typescript로 개발시 Webpack 설정 해보기
 
 ```bash
 $ npm tsx --init
 $ npm i ts-loader typescript -D
 ```
 
-
+```typescript
+// src/math.ts
+export const sum = (a: number, b: number) => {
+	return a + b;
+}
+```
 
 ```javascript
-// index.tsx
+//  src/index.tsx
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { sum } from './math';
 
 const App = () => {
-  return (
-    <div>hello world</div>
-  )
+    return (
+        <div> 1 + 2 = {sum(1, 2)}</div>
+    )
 }
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
 ```
 
-```javascript
-// webpack.config.js
-module.exports = {
-  entry: './src/index.tsx',
-  resolve: {
-    extensions: ['.ts', '.tsx', '.js']
-  },
-  module: {
-    rules: [
-      {
-        test: /\.(ts|tsx)$/,
-        exclude: /node_modules/,
-        use: ['ts-loader'],
-      },
-    ]
-  },
-}
-```
-
 ```json
 // tsconfig.json
 {
   "compilerOptions": {
-    "target": "es5",                         
-    "module": "es5",
-    "jsx": "react",
-    "sourceMap": true
-  },
-  "exclude": "node_modules"
+      "target": "es6",                         
+      "module": "es6",
+      "jsx": "react",
+      "sourceMap": true,
+      "allowSyntheticDefaultImports": true,
+      "esModuleInterop": true,
+    }
 }
-
 ```
+* ts-loader는 tsc, 즉 타입스크립트 컴파일러를 사용하기 때문에 tsconfig.json 파일을 설정해야합니다. 
+* 주의할 점은 module의 키 값으로 "CommonJS"를 주게되면 웹팩이 [tree-shaking](https://webpack.js.org/guides/tree-shaking/)을 못하므로 조심해야합니다.  
+* 또한 allowSyntheticDefaultImports, esModuleInterop의 키값을 true로 설정해야합니다. 그렇지 않으면 "node_modules/@types/react/index has no default export" 라는 에러가 뜰 것입니다.
+  * 왜냐하면 babel-loader는 modules.export를 default export로 인식하지만 ts-loader의 tsc는 그렇지 않기 때문입니다.
 
-ts-loader가 tsc, 즉 타입스크립트 컴파일러를 사용하기 때문에 tsconfig.json 파일을 설정해야합니다. 주의할 점은 module의 키 값으로 "CommonJS"를 주게되면
-웹팩이 [tree-shaking](https://webpack.js.org/guides/tree-shaking/)을 못하므로 조심해야합니다.  
+<br />
+
+```javascript
+// webpack.config.js
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+    entry: './index.tsx',
+    output: {
+        filename: 'bundles.js',
+        path: path.resolve(__dirname, 'dist')
+    },
+    resolve: {
+        extensions: ['.ts', '.tsx', '.js']
+    },
+    devServer: {
+        contentBase: path.join(__dirname, 'dist'),
+        hot: true,
+    },
+    module: {
+        rules: [
+            {
+                test: /\.(ts|tsx)$/,
+                exclude: /node_modules/,
+                use: ['ts-loader']
+            }
+        ]
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './index.html'
+        })
+    ],
+    mode: 'development'
+}
+```
+* 기본적으로 웹팩은 ts 확장자 파일을 인식하지 않기 때문에 extensions 옵션을 추가합니다.
+* ts-loader에 의해 ts 파일이 js 파일로 변환되고, es6 문법으로 transcompiling 합니다.
+* HtmlWebpackPlugin 플러그인을 추가하여 웹팩을 실행할 때 마다 자동으로 dist 폴더밑에 index.html을 생성하고 script 태그로 bundle.js 파일과 연결한다.
