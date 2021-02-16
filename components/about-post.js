@@ -23,9 +23,10 @@ export default function AboutPost() {
             <article>
               <h1 className=" text-3xl mb-2">Introduction</h1>
               <div className=" border-b-2 mb-5"></div>
-              <ul className="text-base lg:text-lg sm:text-left ">
+              <ul className="text-base lg:text-lg sm:text-left leading-loose ">
                 <li>TypeScript를 이용하여 React.js와 Next.js 개발을 하고있습니다.</li>
                 <li>정적 타이핑, 유닛 테스트를 통해 내가 작성한 코드가 안전하게 실행되도록 합니다.</li>
+                <li>컨텐츠의 특성에 따라 클라이언트 사이드 렌더링과, 서버 사이드 렌더링 중 선택하여 개발합니다. </li>
                 <li>UI/UX에 관심이 많아 WPO(Web Performance Optimization)에 흥미가 있습니다.</li>
               </ul>
               <p className="font-sans text-base mb-4 lg:text-lg  sm:text-left">
@@ -43,6 +44,9 @@ export default function AboutPost() {
                 </a> 
                 <a href="https://www.learncpp.com/" className="hover:bg-gray-300 my-0.5 mx-0.5">
                     <img alt="c++" src="c++.png" />
+                </a>
+                <a href="https://www.python.org/" className="hover:bg-gray-300 my-0.5 mx-0.5">
+                    <img alt="python" src="python.png" />
                 </a>
                 <a href="https://ocaml.org/" className="hover:bg-gray-300 my-0.5 mx-0.5">
                     <img alt="ocaml" src="ocaml.png"/>
