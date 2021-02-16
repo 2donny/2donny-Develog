@@ -28,10 +28,13 @@ export default function project() {
                         <div className="border-t-2 border-black w-4/6 mb-5"/>
                         <ul className="ml-10">
                             <li className="flex content-center my-2">
-                                <p className="ml-0">케어링엔컴퍼니 외주</p><sup className=" text-gray-400 top-1 ml-1">2020.9~</sup>
+                                <p className="ml-0">대학생 커뮤니티 연고링 </p><sup className=" text-gray-400 top-1 ml-1">2021.2~</sup>
                             </li>
                             <li className="flex content-center my-2">
-                                <p className="ml-0">하루 위치기반 플래너 </p><sup className=" text-gray-400 top-1 ml-1">2021.1~</sup>
+                                <p className="ml-0">위치기반 플래너 하루 </p><sup className=" text-gray-400 top-1 ml-1">2021.1~</sup>
+                            </li>
+                            <li className="flex content-center my-2">
+                                <p className="ml-0">케어링엔컴퍼니 외주</p><sup className=" text-gray-400 top-1 ml-1">2020.9~</sup>
                             </li>
                         </ul>
                     </article>
