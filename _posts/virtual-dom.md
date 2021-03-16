@@ -21,7 +21,7 @@ React의 Virtual DOM은 웹 어플리케이션 내의 View를 업데이트하는
 
 ## 왜 우리는 UI 라이브러리가 필요한가?
 React의 가장 중요한 2가지 아이디어는 <strong>event-driven</strong>과 <strong>state에 대한 변화</strong>이다. <br />
-DOM의 UI 컴포넌트는 각각의 internal state가 있다. 그런데 브라우저를 업데이트하는 것이 그 internal state가 변할 때 마다 DOM을 그저 화면에 새롭게 렌더링 것처럼 간단한 문제는 결코 아닐 것이다. 만약 그랬다면 Gmal에서 새로운 메세지가 들어올 때 마다 브라우저가 refresh되는 UX를 경험해야한다.
+DOM의 UI 컴포넌트는 각각의 internal state가 있다. 그런데 브라우저를 업데이트하는 것이 그 internal state가 변할 때 마다 DOM을 그저 화면에 새롭게 렌더링 것처럼 간단한 문제는 결코 아닐 것이다. 만약 그랬다면 Gmail에서 새로운 메세지가 들어올 때 마다 브라우저가 refresh되는 UX를 경험해야한다.
 
 DOM의 statefulness는 우리가 UI 라이브러리를 사용해야하는 이유이다. UI 라이브러리가 data model의 변경을 계속 지켜보고 변경된 부분만 브라우저에게 알려주어 DOM을 변경한다.
 
