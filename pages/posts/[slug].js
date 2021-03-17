@@ -24,7 +24,7 @@ export default function Post({ post }) {
           <>
             <Intro />
             <LeftNav/>
-            <article className="mb-32">
+            <article className="mb-32 px-5">
               <Head>
                 <title>
                   {post.title} | 2donny's Blog
